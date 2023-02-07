@@ -25,6 +25,24 @@ function getFinalOpenedDoors(numDoors) {
     return openDoors;
 }
 
-var arr = getFinalOpenedDoors(10);
+function getFinalOpenedDoorsFaster(numDoors) {
+    
+    
+    // iterate thru the door numbers 1 to numDoors. Add door number to openDoors array if door number is a square
+    let openDoors = [];
+    let openDoorsIdx = 0;
+    for (let idx = 1; idx <= numDoors; idx++) {
+        if ((idx % Math.sqrt(idx)) == 0) {
+            openDoors[openDoorsIdx++] = idx;
+        }
+    }
 
-console.log(arr);
+    return openDoors;
+
+}
+
+var arr1 = getFinalOpenedDoors(100);
+var arr2 = getFinalOpenedDoorsFaster(100);
+
+console.log(arr1);
+console.log(arr2);
